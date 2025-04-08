@@ -1,0 +1,115 @@
+.resource-container {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  /* height: 100%; */
+  position: relative;  /* 添加相对定位 */
+}
+
+.resource-list {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 60px;  /* 为翻页器留出空间 */
+}
+
+.pagination {
+  position: fixed;  /* 固定定位 */
+  bottom: 50px;    /* 留出底部导航栏的空间 */
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-top: 1px solid var(--border-color);
+  background: var(--background-color);  /* 添加背景色 */
+  z-index: 100;    /* 确保在列表上层 */
+}
+
+/* 深色模式下翻页器背景色 */
+@media (prefers-color-scheme: dark) {
+  .pagination {
+    --background-color: #333;
+  }
+}
+
+/* 浅色模式下翻页器背景色 */
+.pagination {
+  --background-color: #fff;
+}
+
+.resource-header {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 16px;
+}
+
+.header-button {
+  flex: 0 1 45%;
+}
+
+.resource-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.page-info {
+  color: var(--text-secondary);
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+  .resource-container {
+    --border-color: #444;
+    --text-secondary: #999;
+  }
+
+  .pagination {
+    background-color: #333;  /* 修改翻页器深色背景 */
+  }
+
+  :root:root .adm-list-item {
+    background-color: #333;
+    color: #fff;
+  }
+
+  :root:root .adm-list-item-description {
+    color: #999;
+  }
+
+  :root:root .adm-list-item-content-extra {
+    color: #1677ff;
+  }
+
+  :root:root .adm-button {
+    background-color: #333;
+    color: #fff;
+    border-color: #444;
+  }
+
+  :root:root .adm-list-item {
+    border-top-color: #444;
+  }
+
+  :root:root .adm-list-body {
+    background-color: transparent;
+  }
+}
+
+/* 浅色模式默认值 */
+.resource-container {
+  --border-color: #eee;
+  --text-secondary: #666;
+}
+
+.pagination {
+  background-color: #fff;  /* 添加翻页器浅色背景 */
+}
