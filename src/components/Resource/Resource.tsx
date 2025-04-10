@@ -59,9 +59,7 @@ const Resource = () => {
         ))}
       </List>
 
-      <div className="pagination" style={{
-        backgroundColor: '#333',
-      }}>
+      <div className="pagination">
         <Button>上一页</Button>
         <span className="page-info">第 1 页 / 共 1 页</span>
         <Button>下一页</Button>

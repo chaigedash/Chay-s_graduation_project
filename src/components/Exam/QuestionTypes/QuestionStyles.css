@@ -1,0 +1,82 @@
+.question-editor {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  /* height: 100vh; */
+  background-color: #fff;
+  color: #333;  /* 添加默认文字颜色 */
+}
+
+:root:root .adm-text-area {
+  color: #333;  /* 添加文本框文字颜色 */
+}
+
+:root:root .adm-input {
+  color: #333;  /* 添加输入框文字颜色 */
+}
+
+.editor-header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.editor-content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.question-title {
+  margin-bottom: 20px;
+}
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.option-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.answer-area {
+  margin-top: 20px;
+}
+
+.judge-options {
+  margin-top: 20px;
+}
+
+.editor-footer {
+  padding: 16px 0;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #eee;
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+  .question-editor {
+    background-color: #333;
+  }
+
+  .editor-footer {
+    border-top-color: #444;
+  }
+
+  :root:root .adm-text-area {
+    --adm-color-background: #333;  /* 修改这里 */
+    color: #fff;
+  }
+
+  :root:root .adm-input {
+    --adm-color-background: #333;  /* 修改这里 */
+    color: #fff;
+  }
+
+  h3 {
+    color: #fff;
+  }
+}

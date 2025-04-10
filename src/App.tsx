@@ -9,6 +9,7 @@ import {
 import { useState } from 'react'
 import './App.css'
 import Resource from './components/Resource/Resource'
+import Exam from './components/Exam/Exam'
 
 function App() {
   const [activeKey, setActiveKey] = useState('home')
@@ -55,6 +56,7 @@ function App() {
           </div>
         )}
         {activeKey === 'resource' && <Resource />}
+        {activeKey === 'exam' && <Exam />}
       </div>
       <TabBar activeKey={activeKey} onChange={setActiveKey}>
         {tabs.map(item => (

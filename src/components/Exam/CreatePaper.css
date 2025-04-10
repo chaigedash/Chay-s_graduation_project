@@ -1,0 +1,74 @@
+.create-paper-container {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: #fff;
+}
+
+.paper-header {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 16px;
+  padding: 0 16px;
+}
+
+.header-button {
+  flex: 0 1 40%;
+}
+
+.question-list {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 60px;
+}
+
+.tag-group {
+  display: flex;
+  gap: 8px;
+}
+
+.pagination {
+  position: fixed;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-top: 1px solid #eee;
+  background-color: #fff;
+  z-index: 100;
+}
+
+.page-info {
+  color: #666;
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+  .create-paper-container {
+    background-color: #333;
+  }
+
+  :root:root .adm-list-item {
+    background-color: #333;
+    color: #fff;
+  }
+
+  .page-info {
+    color: #fff;
+  }
+
+  :root:root .adm-button {
+    background-color: #333;
+    color: #fff;
+    border-color: #444;
+  }
+
+  .pagination {
+    background-color: #333;
+    border-top-color: #444;
+  }
+}

@@ -1,20 +1,29 @@
-.resource-container {
+.exam-container {
   padding: 16px;
   display: flex;
   flex-direction: column;
-  /* height: 100%; */
-  position: relative;  /* 添加相对定位 */
+  position: relative;
 }
 
-.resource-list {
+.exam-header {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 16px;
+}
+
+.header-button {
+  flex: 0 1 45%;
+}
+
+.exam-list {
   flex: 1;
   overflow-y: auto;
   padding-bottom: 60px;  /* 为翻页器留出空间 */
 }
 
 .pagination {
-  position: fixed;  /* 固定定位 */
-  bottom: 50px;    /* 留出底部导航栏的空间 */
+  position: fixed;
+  bottom: 50px;
   left: 0;
   right: 0;
   display: flex;
@@ -22,18 +31,35 @@
   align-items: center;
   padding: 16px;
   border-top: 1px solid var(--border-color);
+  background-color: var(--background-color);
   z-index: 100;
 }
 
 /* 深色模式适配 */
 @media (prefers-color-scheme: dark) {
-  .resource-container {
-    --border-color: #444;
-    --text-secondary: #999;
-  }
-
   .pagination {
     background-color: #333;
+  }
+  
+  .page-info {
+    color: #fff;
+  }
+}
+
+/* 浅色模式默认值 */
+.pagination {
+  background-color: #fff;
+}
+
+.page-info {
+  color: var(--text-secondary);
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+  .exam-container {
+    --border-color: #444;
+    --text-secondary: #999;
   }
 
   :root:root .adm-list-item {
@@ -65,22 +91,7 @@
 }
 
 /* 浅色模式默认值 */
-.resource-container {
+.exam-container {
   --border-color: #eee;
   --text-secondary: #666;
-}
-
-.pagination {
-  background-color: #fff;
-}
-
-.resource-header {
-  display: flex;
-  justify-content: space-around;  /* 保持这个 */
-  margin-bottom: 16px;
-  padding: 0 16px;  /* 添加左右内边距 */
-}
-
-.header-button {
-  flex: 0 1 40%;  /* 调整按钮宽度比例 */
 }
