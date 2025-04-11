@@ -1,0 +1,62 @@
+.auth-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.auth-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+:root:root .adm-form {
+  --adm-color-primary: #1677ff;
+}
+
+:root:root .adm-form-item {
+  margin-bottom: 20px;
+}
+
+:root:root .adm-form-item-label {
+  width: 80px;  /* 固定标签宽度 */
+  text-align: right;  /* 标签右对齐 */
+  padding-right: 12px;  /* 标签和输入框之间的间距 */
+}
+
+.auth-input {
+  width: 100%;  /* 输入框宽度 */
+}
+
+.auth-footer {
+  margin-top: 20px;
+  text-align: center;
+  color: #666;
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+  .auth-container {
+    background-color: #333;
+  }
+
+  .auth-container h2 {
+    color: #fff;
+  }
+
+  .auth-footer {
+    color: #999;
+  }
+
+  :root:root .adm-input {
+    --adm-color-background: #242424;
+    color: #fff;
+  }
+
+  :root:root .adm-form-item-label {
+    color: #fff;
+  }
+}

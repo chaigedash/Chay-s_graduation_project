@@ -10,9 +10,15 @@ import { useState } from 'react'
 import './App.css'
 import Resource from './components/Resource/Resource'
 import Exam from './components/Exam/Exam'
+import Auth from './components/Auth/Auth'
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [activeKey, setActiveKey] = useState('home')
+
+  if (!isLoggedIn) {
+    return <Auth onLoginSuccess={() => setIsLoggedIn(true)} />
+  }
 
   const tabs = [
     {
