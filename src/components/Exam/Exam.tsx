@@ -3,8 +3,10 @@ import { EditOutlined, SwapOutlined } from '@ant-design/icons'
 import './Exam.css'
 import { useState } from 'react'
 import CreatePaper from './CreatePaper'
+import TakeExam from './TakeExam'
 
 const Exam = () => {
+  const [showExam, setShowExam] = useState(false)
   const [showCreate, setShowCreate] = useState(false)
 
   const exams = [
@@ -44,6 +46,10 @@ const Exam = () => {
     return <CreatePaper onFinish={() => setShowCreate(false)} />
   }
 
+  if (showExam) {
+    return <TakeExam onFinish={() => setShowExam(false)} />
+  }
+
   return (
     <div className="exam-container">
       <div className="exam-header">
@@ -61,6 +67,7 @@ const Exam = () => {
             key={item.id}
             description={item.date}
             extra={item.difficulty}
+            onClick={() => setShowExam(true)}
           >
             {item.title}
           </List.Item>

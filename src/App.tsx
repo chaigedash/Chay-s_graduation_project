@@ -11,6 +11,7 @@ import './App.css'
 import Resource from './components/Resource/Resource'
 import Exam from './components/Exam/Exam'
 import Auth from './components/Auth/Auth'
+import Data from './components/Data/Data'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -63,6 +64,7 @@ function App() {
         )}
         {activeKey === 'resource' && <Resource />}
         {activeKey === 'exam' && <Exam />}
+        {activeKey === 'data' && <Data />}
       </div>
       <TabBar activeKey={activeKey} onChange={setActiveKey}>
         {tabs.map(item => (
