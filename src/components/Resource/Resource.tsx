@@ -1,8 +1,19 @@
 import { Button, List } from 'antd-mobile'
 import { UploadOutlined, SettingOutlined } from '@ant-design/icons'
 import './Resource.css'
+import { useState } from 'react'
+import ResourceDetail from './ResourceDetail'
+import VideoDetail from './VideoDetail'
+
+interface ResourceItem {
+  id: number
+  title: string
+  date: string
+  type: string
+}
 
 const Resource = () => {
+  const [selectedResource, setSelectedResource] = useState<ResourceItem | null>(null)
   const resources = [
     {
       id: 1,
@@ -35,35 +46,88 @@ const Resource = () => {
       type: '视频'
     }
   ]
+  const [isManaging, setIsManaging] = useState(false)
+
+  const handleDelete = (id: number) => {
+    // 处理删除逻辑
+    console.log('删除资源:', id)
+  }
+
+  const handleEdit = (resource: ResourceItem) => {
+    // 处理编辑逻辑
+    console.log('编辑资源:', resource.id)
+  }
 
   return (
     <div className="resource-container">
-      <div className="resource-header">
-        <Button className="header-button">
-          <UploadOutlined /> 上传资源
-        </Button>
-        <Button className="header-button">
-          <SettingOutlined /> 管理资源
-        </Button>
-      </div>
+      {selectedResource ? (
+        selectedResource.type === '文档' ? (
+          <ResourceDetail resource={selectedResource} />
+        ) : (
+          <VideoDetail resource={selectedResource} />
+        )
+      ) : (
+        <>
+          <div className="resource-header">
+            <Button className="header-button">
+              <UploadOutlined /> 上传资源
+            </Button>
+            <Button 
+              className="header-button"
+              onClick={() => setIsManaging(!isManaging)}
+            >
+              <SettingOutlined /> {isManaging ? '完成' : '管理资源'}
+            </Button>
+          </div>
 
-      <List className="resource-list">
-        {resources.map(item => (
-          <List.Item
-            key={item.id}
-            description={item.date}
-            extra={item.type}
-          >
-            {item.title}
-          </List.Item>
-        ))}
-      </List>
+          <List className="resource-list">
+            {resources.map(item => (
+              <List.Item
+                key={item.id}
+                description={item.date}
+                extra={
+                  isManaging ? (
+                    <div className="resource-actions">
+                      {item.type === '文档' && (
+                        <Button
+                          size='small'
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            handleEdit(item)
+                          }}
+                        >
+                          编辑
+                        </Button>
+                      )}
+                      <Button
+                        size='small'
+                        color='danger'
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          handleDelete(item.id)
+                        }}
+                      >
+                        删除
+                      </Button>
+                    </div>
+                  ) : (
+                    item.type
+                  )
+                }
+                onClick={() => !isManaging && setSelectedResource(item)}
+              >
+                {item.title}
+              </List.Item>
+            ))}
+          </List>
 
       <div className="pagination">
         <Button>上一页</Button>
         <span className="page-info">第 1 页 / 共 1 页</span>
         <Button>下一页</Button>
       </div>
+        </>
+      )}
     </div>
   )
 }

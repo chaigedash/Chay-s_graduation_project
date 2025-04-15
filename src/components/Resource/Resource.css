@@ -84,3 +84,12 @@
 .header-button {
   flex: 0 1 40%;  /* 调整按钮宽度比例 */
 }
+
+.resource-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.resource-actions .adm-button {
+  min-width: 60px;
+}

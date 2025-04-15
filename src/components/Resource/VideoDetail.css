@@ -1,0 +1,44 @@
+.video-detail-container {
+  padding: 16px;
+  height: calc(100vh - 50px);
+  background: #fff;
+}
+
+.video-title {
+  color: #333;
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+.video-player-wrapper {
+  position: relative;
+  width: 100%;
+  background: #000; /* 保持视频播放器背景为黑色 */
+}
+
+.video-player {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+.video-controls {
+  padding: 12px;
+  color: #fff;
+}
+
+.playback-rates {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rate-option {
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.rate-option.active {
+  background: #1677ff;
+}

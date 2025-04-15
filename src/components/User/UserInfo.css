@@ -1,0 +1,101 @@
+.user-info-container {
+  padding: 16px;
+  background-color: #f5f5f5;
+  min-height: calc(100vh - 50px); /* 减去 TabBar 的高度 */
+  overflow-y: auto;
+}
+
+.info-card {
+  display: flex;
+  align-items: flex-start;  /* 改为顶部对齐 */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.avatar-section {
+  margin-right: 16px;
+  padding-top: 4px;  /* 给头像添加一点上边距 */
+}
+
+.user-avatar {
+  --size: 64px;
+  border-radius: 50%;
+}
+
+.user-details {
+  flex: 1;
+}
+
+.user-name {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.user-account {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.user-role {
+  font-size: 14px;
+  color: #1677ff;
+  margin-bottom: 8px;
+}
+
+.user-tag {
+  --border-radius: 16px;
+  font-size: 12px;
+}
+
+.arrow-section {
+  color: #999;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+}
+
+.action-section {
+  padding: 0 16px;
+}
+
+.action-button {
+  margin-bottom: 12px;
+  background-color: #fff;
+  border-radius: 8px;
+  height: 48px;
+  font-size: 16px;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.action-button.danger {
+  color: #ff4d4f;
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+  .user-info-container {
+    background-color: #333;
+  }
+
+  .info-card {
+    background-color: #242424;
+  }
+
+  .user-account {
+    color: #999;
+  }
+
+  .arrow-section {
+    color: #666;
+  }
+
+  .action-button {
+    background-color: #242424;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+}
